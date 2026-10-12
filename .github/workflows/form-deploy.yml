@@ -13,6 +13,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v4
+        with:
+          username: ${{ vars.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Docker image
+        run: |
+          docker build -t kunalmadoliya/learn-deploy:tagname .
+          docker push kunalmadoliya/learn-deploy:tagname
+
       - name: Deploy on Azure VM
         uses: appleboy/ssh-action@v1
         with:
