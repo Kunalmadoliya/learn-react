@@ -16,7 +16,7 @@ FROM node:22-alpine
 
 WORKDIR /app 
 
-COPY --from=builder /app /app
+COPY --from=build /app /app
 
 EXPOSE 3000
 
