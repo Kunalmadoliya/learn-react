@@ -16,6 +16,10 @@ app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
 
+app.get("/", (req, res) => {
+  req.json({ message: "Hello from /h endpoint!" });
+});
+
 app.get("/db", async (req, res) => {
   try {
     const result = await pool.query("SELECT NOW()");
