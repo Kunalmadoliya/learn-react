@@ -8,11 +8,12 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Deploy on Azure
+      - name: Deploy on Azure VM
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.AZURE_VM_HOST }}
@@ -20,7 +21,7 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           passphrase: ${{ secrets.AZURE_VM_SSH_PASSPHRASE }}
           script: |
-            export PATH="$PATH:/usr/local/bin"
+            export PATH="/home/azureuser/.nvm/versions/node/v24.21.0/bin:$PATH"
             cd /home/azureuser/learn-react/nodejs-deploy
             git pull origin main
             npm install
