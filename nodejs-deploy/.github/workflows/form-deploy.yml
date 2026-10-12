@@ -1,0 +1,26 @@
+name: Deploy Service
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy on Azure
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.AZURE_VM_HOST }}
+          username: ${{ secrets.AZURE_VM_USER }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          passphrase: ${{ secrets.AZURE_VM_SSH_PASSPHRASE }}
+          script: |
+            cd /home/azureuser/learn-react/nodejs-deploy
+            git pull origin main
+            npm install
+            pm2 restart all
