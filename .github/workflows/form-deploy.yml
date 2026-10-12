@@ -39,13 +39,7 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           passphrase: ${{ secrets.AZURE_VM_SSH_PASSPHRASE }}
           script: |
+            docker stop learn-deploy || true
+            docker rm learn-deploy || true
             docker pull kunalmadoliya/learn-deploy:latest
-
-            docker stop nodejs-deploy || true
-            docker rm nodejs-deploy || true
-
-            docker run -d \
-              --name nodejs-deploy \
-              --restart unless-stopped \
-              -p 3000:3000 \
-              kunalmadoliya/learn-deploy:latest
+            docker run -d --name learn-deploy -p 8000:3000 kunalmadoliya/learn-deploy:latest
