@@ -8,7 +8,7 @@ const DisplayQueue = ({ user = [], onUpdate, onDelete }) => {
   }
 
   return (
-    <div className="w-full max-w-3xl rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+    <div className="w-full max-w-3xl  rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">
