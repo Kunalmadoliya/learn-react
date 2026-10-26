@@ -16,11 +16,13 @@ const Button = ({
 
   const colors = {
     primary: "bg-blue-600 text-white hover:bg-blue-700",
-    secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200 border border-gray-200",
+    secondary:
+      "bg-gray-100 text-gray-900 hover:bg-gray-200 border border-gray-200 dark:bg-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-600 dark:border-neutral-600",
     danger: "bg-red-600 text-white hover:bg-red-700",
     success: "bg-green-600 text-white hover:bg-green-700",
-    outline: "border border-gray-300 text-gray-800 hover:bg-gray-100",
-    dark: "bg-gray-900 text-white hover:bg-gray-700",
+    outline:
+      "border border-gray-300 text-gray-800 hover:bg-gray-100 dark:border-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-700",
+    dark: "bg-gray-900 text-white hover:bg-gray-700 dark:bg-neutral-700 dark:hover:bg-neutral-600",
   };
 
   return (
@@ -53,18 +55,18 @@ const BasicProps = () => {
   ];
 
   return (
-    <section className="w-full rounded-2xl border border-gray-200 bg-white p-5 sm:p-6">
-      <div className="mb-6 flex items-center justify-between border-b border-gray-100 pb-4">
+    <section className="w-full rounded-2xl border border-gray-200 bg-white p-5 dark:border-neutral-700 dark:bg-neutral-900 sm:p-6">
+      <div className="mb-6 flex items-center justify-between border-b border-gray-100 pb-4 dark:border-neutral-800">
         <div>
-          <h2 className="text-lg font-semibold text-gray-900">
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-neutral-100">
             Button Variants
           </h2>
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="mt-1 text-sm text-gray-500 dark:text-neutral-400">
             Different sizes, colors, and states
           </p>
         </div>
 
-        <span className="rounded-lg bg-gray-100 px-3 py-1 text-sm font-medium text-gray-600">
+        <span className="rounded-lg bg-gray-100 px-3 py-1 text-sm font-medium text-gray-600 dark:bg-neutral-800 dark:text-neutral-300">
           {count} clicks
         </span>
       </div>
@@ -73,15 +75,14 @@ const BasicProps = () => {
         {buttons.map((button, index) => (
           <div
             key={index}
-            className="flex min-w-0 flex-col gap-3 rounded-xl border border-gray-100 bg-gray-50 p-4"
+            className="flex min-w-0 flex-col gap-3 rounded-xl border border-gray-100 bg-gray-50 p-4 dark:border-neutral-700 dark:bg-neutral-800"
           >
-            <span className="text-xs font-medium text-gray-500">
+            <span className="text-xs font-medium text-gray-500 dark:text-neutral-400">
               {button.text}
             </span>
-           
 
             <Button
-             {...button}
+              {...button}
               onClick={() => setCount((prev) => prev + 1)}
             />
           </div>

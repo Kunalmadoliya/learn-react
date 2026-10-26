@@ -1,89 +1,89 @@
 const UserProfile = ({user, theme, organization}) => {
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
+    <div className="w-full overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-700 dark:bg-neutral-900">
       {/* Profile Header */}
-      <div className="flex items-center gap-4 border-b border-neutral-100 p-6">
+      <div className="flex items-center gap-4 border-b border-neutral-100 p-6 dark:border-neutral-800">
         <img
           src={user.profile.avatar}
           alt={user.profile.username}
-          className="h-16 w-16 rounded-full border border-neutral-200 object-cover"
+          className="h-16 w-16 rounded-full border border-neutral-200 object-cover dark:border-neutral-700"
         />
 
         <div className="min-w-0 flex-1">
-          <h2 className="text-xl font-semibold text-neutral-900">
+          <h2 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
             {user.profile.fullName}
           </h2>
-          <p className="text-sm text-neutral-500">@{user.profile.username}</p>
-          <p className="mt-1 text-sm text-neutral-600">{user.profile.bio}</p>
+          <p className="text-sm text-neutral-500 dark:text-neutral-400">@{user.profile.username}</p>
+          <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">{user.profile.bio}</p>
         </div>
 
-        <span className="rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-700">
+        <span className="rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-700 dark:bg-green-950/50 dark:text-green-400">
           {user.account.status}
         </span>
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-3 divide-x divide-neutral-200 border-b border-neutral-100">
+      <div className="grid grid-cols-3 divide-x divide-neutral-200 border-b border-neutral-100 dark:divide-neutral-700 dark:border-neutral-800">
         <div className="p-4 text-center">
           <p className="text-lg font-semibold">
             {user.social.followers.toLocaleString()}
           </p>
-          <p className="text-xs text-neutral-500">Followers</p>
+          <p className="text-xs text-neutral-500 dark:text-neutral-400">Followers</p>
         </div>
         <div className="p-4 text-center">
           <p className="text-lg font-semibold">
             {user.social.following.toLocaleString()}
           </p>
-          <p className="text-xs text-neutral-500">Following</p>
+          <p className="text-xs text-neutral-500 dark:text-neutral-400">Following</p>
         </div>
         <div className="p-4 text-center">
           <p className="text-lg font-semibold">{user.social.posts}</p>
-          <p className="text-xs text-neutral-500">Posts</p>
+          <p className="text-xs text-neutral-500 dark:text-neutral-400">Posts</p>
         </div>
       </div>
 
       {/* Details Grid */}
       <div className="grid grid-cols-1 gap-4 p-6 sm:grid-cols-2">
         {/* Account */}
-        <div className="rounded-xl border border-neutral-200 p-4">
-          <h3 className="mb-4 text-sm font-semibold text-neutral-900">
+        <div className="rounded-xl border border-neutral-200 p-4 dark:border-neutral-700">
+          <h3 className="mb-4 text-sm font-semibold text-neutral-900 dark:text-neutral-100">
             Account Details
           </h3>
 
           <div className="space-y-3 text-sm">
             <p className="flex justify-between gap-3">
-              <span className="text-neutral-500">Email</span>
+              <span className="text-neutral-500 dark:text-neutral-400">Email</span>
               <span className="break-all text-right">{user.account.email}</span>
             </p>
             <p className="flex justify-between gap-3">
-              <span className="text-neutral-500">Role</span>
+              <span className="text-neutral-500 dark:text-neutral-400">Role</span>
               <span>{user.account.role}</span>
             </p>
             <p className="flex justify-between gap-3">
-              <span className="text-neutral-500">Location</span>
+              <span className="text-neutral-500 dark:text-neutral-400">Location</span>
               <span>{user.profile.location.city}</span>
             </p>
             <p className="flex justify-between gap-3">
-              <span className="text-neutral-500">Verified</span>
+              <span className="text-neutral-500 dark:text-neutral-400">Verified</span>
               <span>{user.profile.verified ? "Yes" : "No"}</span>
             </p>
           </div>
         </div>
 
         {/* Theme */}
-        <div className="rounded-xl border border-neutral-200 p-4">
-          <h3 className="mb-4 text-sm font-semibold text-neutral-900">
+        <div className="rounded-xl border border-neutral-200 p-4 dark:border-neutral-700">
+          <h3 className="mb-4 text-sm font-semibold text-neutral-900 dark:text-neutral-100">
             Theme Settings
           </h3>
 
           <div className="mb-4 flex items-center gap-3">
             <div
-              className="h-10 w-10 rounded-lg border border-neutral-200"
+              className="h-10 w-10 rounded-lg border border-neutral-200 dark:border-neutral-700"
               style={{backgroundColor: theme.colors.primary}}
             />
             <div>
               <p className="text-sm font-medium">{theme.mode} mode</p>
-              <p className="text-xs text-neutral-500">{theme.colors.primary}</p>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400">{theme.colors.primary}</p>
             </div>
           </div>
 
@@ -91,45 +91,45 @@ const UserProfile = ({user, theme, organization}) => {
             {Object.entries(theme.colors).map(([name, color]) => (
               <div key={name} className="min-w-0 flex-1 text-center">
                 <div
-                  className="h-7 rounded-md border border-neutral-200"
+                  className="h-7 rounded-md border border-neutral-200 dark:border-neutral-700"
                   style={{backgroundColor: color}}
                   title={name}
                 />
-                <p className="mt-1 truncate text-xs text-neutral-500">{name}</p>
+                <p className="mt-1 truncate text-xs text-neutral-500 dark:text-neutral-400">{name}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Organization */}
-        <div className="rounded-xl border border-neutral-200 p-4 sm:col-span-2">
-          <h3 className="mb-4 text-sm font-semibold text-neutral-900">
+        <div className="rounded-xl border border-neutral-200 p-4 dark:border-neutral-700 sm:col-span-2">
+          <h3 className="mb-4 text-sm font-semibold text-neutral-900 dark:text-neutral-100">
             Organization
           </h3>
 
           <div className="mb-5 grid grid-cols-3 gap-3">
-            <div className="rounded-lg bg-neutral-50 p-3">
+            <div className="rounded-lg bg-neutral-50 p-3 dark:bg-neutral-800">
               <p className="text-lg font-semibold">
                 {organization.members.length}
               </p>
-              <p className="text-xs text-neutral-500">Members</p>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400">Members</p>
             </div>
-            <div className="rounded-lg bg-neutral-50 p-3">
+            <div className="rounded-lg bg-neutral-50 p-3 dark:bg-neutral-800">
               <p className="text-lg font-semibold">
                 {organization.subscription.plan}
               </p>
-              <p className="text-xs text-neutral-500">Plan</p>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400">Plan</p>
             </div>
-            <div className="rounded-lg bg-neutral-50 p-3">
+            <div className="rounded-lg bg-neutral-50 p-3 dark:bg-neutral-800">
               <p className="text-lg font-semibold">
                 {organization.subscription.usedSeats}/
                 {organization.subscription.seats}
               </p>
-              <p className="text-xs text-neutral-500">Seats used</p>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400">Seats used</p>
             </div>
           </div>
 
-          <div className="divide-y divide-neutral-100">
+          <div className="divide-y divide-neutral-100 dark:divide-neutral-800">
             {organization.members.map((member) => (
               <div
                 key={member.id}
@@ -137,11 +137,11 @@ const UserProfile = ({user, theme, organization}) => {
               >
                 <div>
                   <p className="text-sm font-medium">{member.name}</p>
-                  <p className="text-xs text-neutral-500">
+                  <p className="text-xs text-neutral-500 dark:text-neutral-400">
                     {member.department}
                   </p>
                 </div>
-                <span className="rounded-md bg-neutral-100 px-2 py-1 text-xs text-neutral-600">
+                <span className="rounded-md bg-neutral-100 px-2 py-1 text-xs text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400">
                   {member.role}
                 </span>
               </div>

@@ -7,9 +7,11 @@ const Card = ({ children, size = "medium", color = "primary", title }) => {
   };
 
   const colors = {
-    primary: "border-blue-200 bg-blue-50 text-blue-900",
-    blue: "border-blue-200 bg-blue-50 text-blue-900",
-    green: "border-green-200 bg-green-50 text-green-900",
+    primary:
+      "border-blue-200 bg-blue-50 text-blue-900 dark:border-blue-900 dark:bg-blue-950/40 dark:text-blue-200",
+    blue: "border-blue-200 bg-blue-50 text-blue-900 dark:border-blue-900 dark:bg-blue-950/40 dark:text-blue-200",
+    green:
+      "border-green-200 bg-green-50 text-green-900 dark:border-green-900 dark:bg-green-950/40 dark:text-green-200",
   };
 
   return (
